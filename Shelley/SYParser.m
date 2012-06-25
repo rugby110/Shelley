@@ -199,16 +199,22 @@
         shorthandClass = [UILabel class];
     else if( [firstParam isEqualToString:@"alertView"] )
         shorthandClass = [UIAlertView class];
+    else if( [firstParam isEqualToString:@"actionSheet"] )
+      shorthandClass = [UIActionSheet class];
     else if( [firstParam isEqualToString:@"navigationButton"] )
         shorthandClass = NSClassFromString(@"UINavigationButton");
     else if( [firstParam isEqualToString:@"navigationItemView"] )
         shorthandClass = NSClassFromString(@"UINavigationItemView");
+    else if( [firstParam isEqualToString:@"navigationItemButtonView"] )
+      shorthandClass = NSClassFromString(@"UINavigationItemButtonView");
     else if( [firstParam isEqualToString:@"textField"] )
         shorthandClass = [UITextField class];
     else if( [firstParam isEqualToString:@"tableView"] )
         shorthandClass = [UITableView class];
     else if( [firstParam isEqualToString:@"tableViewCell"] )
         shorthandClass = [UITableViewCell class];
+    else if( [firstParam isEqualToString:@"threePartButton"] )
+      shorthandClass = NSClassFromString(@"UIThreePartButton");
 
     if( shorthandClass )
         return [[[SYClassFilter alloc] initWithClass:shorthandClass] autorelease];
