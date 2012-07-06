@@ -9,20 +9,27 @@
 #import "SYFrankSelectorEngine.h"
 #import "Shelley.h"
 
+#define xstr(s) str(s)
+#define str(s) #s
+#define VERSIONED_NAME xstr(PRODUCT_NAME) " " xstr(PRODUCT_VERSION)
+const unsigned char what_string[] = "@(#)" VERSIONED_NAME "\n";
+
+static NSString *const registeredName = @"shelley_compat";
+
 @implementation SYFrankSelectorEngine
 
 +(void)load{
     SYFrankSelectorEngine *registeredInstance = [[self alloc]init];
-    [SelectorEngineRegistry registerSelectorEngine:registeredInstance WithName:@"shelley_compat"];
+    [SelectorEngineRegistry registerSelectorEngine:registeredInstance WithName:registeredName];
+    NSLog(@"%s registered with Frank as selector engine named '%@'", VERSIONED_NAME, registeredName);
     [registeredInstance release];
 }
 
 - (NSArray *) selectViewsWithSelector:(NSString *)selector {
-    NSLog( @"Using Shelley to select views with selector: %@", selector );	
+    NSLog( @"Using %s to select views with selector: %@", VERSIONED_NAME, selector );
     
     Shelley *shelley = [Shelley withSelectorString:selector];
     return [shelley selectFromViews:[[UIApplication sharedApplication] windows]];
 }
-
 
 @end
