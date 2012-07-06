@@ -6,11 +6,12 @@ end
 
 PRODUCT_NAME="Shelley"
 WORKSPACE_PATH="#{PRODUCT_NAME}.xcodeproj/project.xcworkspace"
+PROJECT_PATH="#{PRODUCT_NAME}.xcodeproj"
 SCHEME=PRODUCT_NAME
 
 def build_project_for(arch)
   sdk = arch+discover_latest_sdk_version
-  sh "xcodebuild -workspace #{WORKSPACE_PATH} -scheme #{SCHEME} -configuration Release -sdk #{sdk} BUILD_DIR=build clean build"
+  sh "xcodebuild -project #{PROJECT_PATH} -scheme #{SCHEME} -configuration Release -sdk #{sdk} BUILD_DIR=build clean build"
 end
 
 desc "Build the arm library"
