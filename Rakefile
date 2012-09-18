@@ -29,7 +29,17 @@ task :combine_libraries do
   `lipo -create -output "build/#{lib_name}" "build/Release-iphoneos/#{lib_name}" "build/Release-iphonesimulator/#{lib_name}"`
 end
 
+desc "clean build artifacts"
+task :clean do
+  rm_rf 'build'
+end
+
+desc "create build directory"
+task :prep_build do
+  mkdir_p 'build'
+end
+
 desc "Build a univeral library for both iphone and iphone simulator"
-task :build_lib => [:build_iphone_lib,:build_simulator_lib,:combine_libraries]
+task :build_lib => [:clean, :prep_build, :build_iphone_lib,:build_simulator_lib,:combine_libraries]
 
 task :default => :build_lib
