@@ -88,7 +88,6 @@
 		D6CF39C213D3EE78000C7901 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		D6CF39C513D3F02F000C7901 /* Shelley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shelley.h; sourceTree = "<group>"; };
 		D6CF39C613D3F02F000C7901 /* Shelley.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shelley.m; sourceTree = "<group>"; };
-		D6DD26EC13D3DF9100F90588 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		D6E8FF3213D3DC9200D24F43 /* libShelley.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libShelley.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E8FF3513D3DC9200D24F43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6E8FF3913D3DC9300D24F43 /* Shelley-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shelley-Prefix.pch"; sourceTree = "<group>"; };
@@ -189,7 +188,6 @@
 				D6CF39B013D3E481000C7901 /* Unit Tests */,
 				D6E8FF3413D3DC9200D24F43 /* Frameworks */,
 				D6E8FF3313D3DC9200D24F43 /* Products */,
-				D6DD26EC13D3DF9100F90588 /* Unit Tests-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
