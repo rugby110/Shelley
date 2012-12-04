@@ -33,7 +33,8 @@
     self = [super init];
     if (self) {
         _scanner = [scanner retain];
-        _paramChars = [[NSCharacterSet letterCharacterSet] retain];
+        
+        _paramChars = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"]retain];        
         _numberChars = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789."]retain];
         _params = [[NSMutableArray alloc] init];
         _args = [[NSMutableArray alloc] init];
