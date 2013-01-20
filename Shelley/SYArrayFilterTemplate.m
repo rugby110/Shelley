@@ -12,14 +12,14 @@
 @implementation SYArrayFilterTemplate
 
 // hook method, must be implemented by concrete subclass
-- (NSArray *) applyToView:(UIView *)view {
+- (NSArray *) applyToView:(ShelleyView *)view {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
 
 - (NSArray *) applyToViews:(NSArray *)views {
     NSMutableArray *filteredViews = [NSMutableArray array];
-    for (UIView *view in views) {
+    for (ShelleyView *view in views) {
         [filteredViews addObjectsFromArray:[self applyToView:view]];
     }    
     return filteredViews;

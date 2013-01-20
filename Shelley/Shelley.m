@@ -66,7 +66,7 @@
     return filteredViews;    
 }
 
-- (NSArray *) selectFrom:(UIView *)rootView
+- (NSArray *) selectFrom:(ShelleyView *)rootView
 {
     return [self selectFromViews:[NSArray arrayWithObject:rootView]];
 }

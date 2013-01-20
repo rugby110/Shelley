@@ -10,7 +10,8 @@
 
 #import "SYPredicateFilter.h"
 
-@interface DummyView : UIView {
+@interface DummyView : ShelleyView
+{
     BOOL methodWasCalled;
     BOOL returnValue;
 }
@@ -39,7 +40,7 @@
 @implementation SYPredicateFilterTests
 
 - (void) testGracefullyHandlesViewNotRespondingToSelector{
-    UIView *view = [[[UIView alloc] init]autorelease];
+    ShelleyView *view = [[[ShelleyView alloc] init]autorelease];
     SYPredicateFilter *filter = [[[SYPredicateFilter alloc] initWithSelector:@selector(notPresent) args:[NSArray array]] autorelease];
     
     NSArray *filteredViews = [filter applyToView:view];

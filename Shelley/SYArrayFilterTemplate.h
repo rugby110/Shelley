@@ -7,11 +7,12 @@
 //
 
 #import "SYFilter.h"
+#import "Shelley.h"
 
 @interface SYArrayFilterTemplate : NSObject<SYFilter> {
     
 }
 
-- (NSArray *) applyToView:(UIView *)view;
+- (NSArray *) applyToView:(ShelleyView *)view;
 
 @end

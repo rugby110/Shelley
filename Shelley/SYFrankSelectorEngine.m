@@ -29,7 +29,12 @@ static NSString *const registeredName = @"shelley_compat";
     NSLog( @"Using %s to select views with selector: %@", VERSIONED_NAME, selector );
     
     Shelley *shelley = [Shelley withSelectorString:selector];
+    
+#if TARGET_OS_IPHONE
     return [shelley selectFromViews:[[UIApplication sharedApplication] windows]];
+#else
+    return [shelley selectFromViews: [NSArray arrayWithObject: [NSApplication sharedApplication]]];
+#endif
 }
 
 @end

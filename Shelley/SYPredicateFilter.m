@@ -49,8 +49,13 @@
     
     NSUInteger requiredNumberOfArguments = signature.numberOfArguments - 2; // Indices 0 and 1 indicate the hidden arguments self and _cmd, respectively
 	if( requiredNumberOfArguments != [_args count] )
-		[NSException raise:@"wrong number of arguments" 
+#if TARGET_OS_IPHONE
+		[NSException raise:@"wrong number of arguments"
 					format:@"%@ takes %i arguments, but %i were supplied", NSStringFromSelector(_selector), requiredNumberOfArguments, [_args count] ];
+#else
+    [NSException raise:@"wrong number of arguments"
+                format:@"%@ takes %li arguments, but %li were supplied", NSStringFromSelector(_selector), requiredNumberOfArguments, [_args count] ];
+#endif
 	
 	[invocation setSelector:_selector];
 	
@@ -77,7 +82,7 @@
     return retval;
 }
 
--(NSArray *)applyToView:(UIView *)view{
+-(NSArray *)applyToView:(ShelleyView *)view{
     NSInvocation *invocation = [self createInvocationForObject:view];
     if( !invocation )
         return [NSArray array];

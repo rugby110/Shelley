@@ -24,7 +24,7 @@
     _accessibilityLabel = [accessibilityLabel retain];
 }
 
-- (NSString *)accessibilityLabel{
+- (NSString *) accessibilityLabel{
     return _accessibilityLabel;
 }
 

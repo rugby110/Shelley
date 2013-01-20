@@ -8,6 +8,17 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+#if TARGET_OS_IPHONE
+#define ShelleyTestView      UIView
+#define ShelleyTestButton    UIButton
+#define ShelleyTestTableView UITableView
+#define ShelleyTestTableCell UITableViewCell
+#else
+#define ShelleyTestView      NSView
+#define ShelleyTestButton    NSButton
+#define ShelleyTestTableView NSTableView
+#define ShelleyTestTableCell NSTextView
+#endif
 
 @interface SenTestCase(Extensions)
 - (void) assertArray:(NSArray *)array containsObjects:(NSArray *)objects;

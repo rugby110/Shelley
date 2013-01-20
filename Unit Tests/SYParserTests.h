@@ -11,7 +11,11 @@
 //  Define USE_APPLICATION_UNIT_TEST to 0 if the unit test code is designed to be linked into an independent test executable.
 
 #import <SenTestingKit/SenTestingKit.h>
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#endif
+
 //#import "application_headers" as required
 
 

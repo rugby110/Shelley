@@ -9,19 +9,25 @@
 #import "IntegrationTests.h"
 #import "Shelley.h"
 
+#if TARGET_OS_IPHONE
 #import "UIViewWithAccessibilityLabel.h"
+#define UIViewWithAccessibilityLabel UIViewWithAccessibilityLabel
+#else
+#import "NSViewWithAccessibilityLabel.h"
+#define UIViewWithAccessibilityLabel NSViewWithAccessibilityLabel
+#endif
 
 @implementation IntegrationTests
 
 - (void) setUp{
-    view = [[[UIView alloc] init] autorelease];
-    viewA = [[[UIView alloc] init] autorelease];
-    viewAA = [[[UIButton alloc] init] autorelease];
-    viewAB = [[[UIView alloc] init] autorelease];
-    viewABA = [[[UIView alloc] init] autorelease];
-    viewB = [[[UIButton alloc] init] autorelease];
-    viewBA = [[[UIView alloc] init] autorelease];
-    viewC = [[[UIView alloc] init] autorelease];
+    view = [[[ShelleyTestView alloc] init] autorelease];
+    viewA = [[[ShelleyTestView alloc] init] autorelease];
+    viewAA = [[[ShelleyTestButton alloc] init] autorelease];
+    viewAB = [[[ShelleyTestView alloc] init] autorelease];
+    viewABA = [[[ShelleyTestView alloc] init] autorelease];
+    viewB = [[[ShelleyTestButton alloc] init] autorelease];
+    viewBA = [[[ShelleyTestView alloc] init] autorelease];
+    viewC = [[[ShelleyTestView alloc] init] autorelease];
     
     [view addSubview:viewA];
     [viewA addSubview:viewAA];
@@ -34,11 +40,11 @@
     [view addSubview:viewC];
 }
 
-- (void) testViewReturnsAllSubviews {
-    UIView *someView = [[[UIView alloc] init] autorelease];
-    [someView addSubview:[[[UIView alloc] init] autorelease]];
-    [someView addSubview:[[[UIView alloc] init] autorelease]];
-    [someView addSubview:[[[UIView alloc] init] autorelease]];
+- (void) ShelleyTestViewReturnsAllSubviews {
+    ShelleyTestView *someView = [[[ShelleyTestView alloc] init] autorelease];
+    [someView addSubview:[[[ShelleyTestView alloc] init] autorelease]];
+    [someView addSubview:[[[ShelleyTestView alloc] init] autorelease]];
+    [someView addSubview:[[[ShelleyTestView alloc] init] autorelease]];
     
     Shelley *shelley = [Shelley withSelectorString:@"view"];
     
@@ -48,7 +54,7 @@
     [self assertArray:selectedViews containsObjects:someView.subviews];
 }
 
-- (void) testViewReturnsAllDescendants {
+- (void) ShelleyTestViewReturnsAllDescendants {
     Shelley *shelley = [Shelley withSelectorString:@"view"];
     NSArray *selectedViews = [shelley selectFrom:view];
     
@@ -80,7 +86,7 @@
     [self assertArray:selectedViews containsObject:viewB];
 }
 
--(void) testViewButtonReturnsAllGrandChildrenWhichAreButtons {
+-(void) ShelleyTestViewButtonReturnsAllGrandChildrenWhichAreButtons {
     Shelley *shelley = [Shelley withSelectorString:@"view button"];
     NSArray *selectedViews = [shelley selectFrom:view];
     
@@ -89,8 +95,8 @@
 }
 
 -(void) testButtonParentReturnsTheRootView {
-    UIView *rootView = [[[UIView alloc] init] autorelease];
-    [rootView addSubview:[[[UIButton alloc] init] autorelease]];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init] autorelease];
+    [rootView addSubview:[[[ShelleyTestButton alloc] init] autorelease]];
     
     Shelley *shelley = [Shelley withSelectorString:@"button parent"];
     NSArray *selectedViews = [shelley selectFrom:rootView];
@@ -100,12 +106,12 @@
 }
 
 - (void) testFirstSelectsFirstViewInMatchSet {
-    UIView *rootView = [[[UIView alloc] init] autorelease];
-    UIButton *firstButton = [[[UIButton alloc] init] autorelease];
-    [rootView addSubview:[[[UIView alloc] init] autorelease]];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init] autorelease];
+    ShelleyTestButton *firstButton = [[[ShelleyTestButton alloc] init] autorelease];
+    [rootView addSubview:[[[ShelleyTestView alloc] init] autorelease]];
     [rootView addSubview:firstButton];
-    [rootView addSubview:[[[UIButton alloc] init] autorelease]];
-    [rootView addSubview:[[[UIView alloc] init] autorelease]];
+    [rootView addSubview:[[[ShelleyTestButton alloc] init] autorelease]];
+    [rootView addSubview:[[[ShelleyTestView alloc] init] autorelease]];
     
     Shelley *shelley = [Shelley withSelectorString:@"button first"];
     NSArray *selectedViews = [shelley selectFrom:rootView];
@@ -148,7 +154,7 @@
 
 
 - (void) testMarkedSelectsOnlyViewsWithMatchingAccessibilityLabel {
-    UIView *rootView = [[[UIView alloc] init]autorelease];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init]autorelease];
     UIViewWithAccessibilityLabel *subviewA = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"brap"] autorelease];
     UIViewWithAccessibilityLabel *subviewB = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"flap"] autorelease];
     UIViewWithAccessibilityLabel *subviewC = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:nil] autorelease];
@@ -168,7 +174,7 @@
 }
 
 - (void) testMarkedSelectedSubstringMatchesWhileMarkedExactlyOnlySelectsExactMatches {
-    UIView *rootView = [[[UIView alloc] init]autorelease];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init]autorelease];
     UIViewWithAccessibilityLabel *subviewA = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"Frankly"] autorelease];
     UIViewWithAccessibilityLabel *subviewB = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"rank"] autorelease];
     UIViewWithAccessibilityLabel *subviewC = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"Fr-anky"] autorelease];
@@ -197,7 +203,7 @@
 }
 
 - (void) testHandlesDoubleQuotedstringsWithSingleQuotesAndSpacesInside {
-    UIView *rootView = [[[UIView alloc] init]autorelease];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init]autorelease];
     UIViewWithAccessibilityLabel *subview = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"I'm selected"] autorelease];
     [rootView addSubview:subview];
     
@@ -209,7 +215,7 @@
 }
 
 - (void) testHandlesSingleQuotesWithDoubleQuotesInside {
-    UIView *rootView = [[[UIView alloc] init]autorelease];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init]autorelease];
     UIViewWithAccessibilityLabel *subview = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"say \"hi\" now"] autorelease];
     [rootView addSubview:subview];
     
@@ -221,12 +227,12 @@
 }
 
 - (void) testAppliesFiltersSequentiallyInADepthFirstManner {
-    UIView *rootView = [[[UIView alloc] init]autorelease];
+    ShelleyTestView *rootView = [[[ShelleyTestView alloc] init]autorelease];
 
-    UIButton *buttonA = [[[UIButton alloc] init] autorelease];
-    UIButton *buttonAA = [[[UIButton alloc] init] autorelease];
-    UIView *nonButtonB = [[[UIView alloc] init]autorelease];
-    UIButton *buttonBA = [[[UIButton alloc] init] autorelease];
+    ShelleyTestButton *buttonA = [[[ShelleyTestButton alloc] init] autorelease];
+    ShelleyTestButton *buttonAA = [[[ShelleyTestButton alloc] init] autorelease];
+    ShelleyTestView *nonButtonB = [[[ShelleyTestView alloc] init]autorelease];
+    ShelleyTestButton *buttonBA = [[[ShelleyTestButton alloc] init] autorelease];
     
     [rootView addSubview:buttonA];
     [buttonA addSubview:buttonAA];
@@ -251,17 +257,17 @@
 }
 
 - (void) testAllowsSelectionOfSiblingsAndCousinsViaParentFilter {
-    UITableView *tableView = [[[UITableView alloc] init]autorelease];
+    ShelleyTestTableView *tableView = [[[ShelleyTestTableView alloc] init]autorelease];
     
-    UITableViewCell *cellA = [[[UITableViewCell alloc] init] autorelease];
+    ShelleyTestTableCell *cellA = [[[ShelleyTestTableCell alloc] init] autorelease];
     UIViewWithAccessibilityLabel *subviewA = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"cell A"] autorelease];
-    UIButton *buttonA = [[[UIButton alloc] init]autorelease];    
+    ShelleyTestButton *buttonA = [[[ShelleyTestButton alloc] init]autorelease];    
     [cellA addSubview:subviewA];
     [cellA addSubview:buttonA];
 
-    UITableViewCell *cellB = [[[UITableViewCell alloc] init] autorelease];
+    ShelleyTestTableCell *cellB = [[[ShelleyTestTableCell alloc] init] autorelease];
     UIViewWithAccessibilityLabel *subviewB = [[[UIViewWithAccessibilityLabel alloc] initWithAccessibilityLabel:@"cell B"] autorelease];
-    UIButton *buttonB = [[[UIButton alloc] init]autorelease];    
+    ShelleyTestButton *buttonB = [[[ShelleyTestButton alloc] init]autorelease];    
     [cellB addSubview:subviewB];
     [cellB addSubview:buttonB];
     
@@ -274,6 +280,7 @@
     selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent"] selectFrom:tableView];
     [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObjects:cellB,tableView,nil]];
     
+#if TARGET_OS_IPHONE
     selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent view:'UITableViewCell'"] selectFrom:tableView];
     [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:cellB]];
     
@@ -284,7 +291,20 @@
     [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:tableView]];    
 
     selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent view:'UITableView' view marked:'cell A'"] selectFrom:tableView];
-    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:subviewA]];    
+    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:subviewA]];
+#else
+    selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent view:'NSTextView'"] selectFrom:tableView];
+    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:cellB]];
+    
+    selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent view:'NSTextView' button"] selectFrom:tableView];
+    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:buttonB]];
+    
+    selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent tableView"] selectFrom:tableView];
+    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:tableView]];
+    
+    selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent tableView view marked:'cell A'"] selectFrom:tableView];
+    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:subviewA]];
+#endif
 }
 
 @end

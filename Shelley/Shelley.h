@@ -7,7 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+
+#define ShelleyView UIView
+
+#else
+
+#import <Cocoa/Cocoa.h>
+
+#define ShelleyView NSObject
+
+#endif
 
 @class SYParser;
 
@@ -19,7 +31,7 @@
 
 - (id)initWithSelectorString:(NSString *)selectorString;
 
-- (NSArray *) selectFrom:(UIView *)rootView;
+- (NSArray *) selectFrom:(ShelleyView *)rootView;
 - (NSArray *) selectFromViews:(NSArray *)views;
 
 @end

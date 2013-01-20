@@ -20,7 +20,7 @@
     
     id<SYFilter> filter = [parser nextFilter];
     STAssertTrue([filter isKindOfClass:[SYClassFilter class]], nil);
-    STAssertEquals([(SYClassFilter *)filter target], [UIView class], nil);
+    STAssertEquals([(SYClassFilter *)filter target], [ShelleyTestView class], nil);
     
     filter = [parser nextFilter];
     STAssertNil( filter, nil );
@@ -130,10 +130,15 @@
     
     id<SYFilter> filter = [parser nextFilter];
     STAssertTrue([filter isKindOfClass:[SYClassFilter class]], nil);
+
+#if TARGET_OS_IPHONE
     STAssertEquals([(SYClassFilter *)filter target], [UIButton class], nil);
+#else
+    STAssertEquals([(SYClassFilter *)filter target], [NSButton class], nil);
+#endif
 }
 
-
+#if TARGET_OS_IPHONE
 - (void) testMiscellaneousShorthandClassSelectorParses {
     SYParser *parser = [[SYParser alloc] initWithSelectorString:@"navigationButton"];
     
@@ -155,8 +160,8 @@
     STAssertTrue([filter isKindOfClass:[SYClassFilter class]], nil);
     STAssertNotNil([(SYClassFilter *)filter target], nil);
     STAssertEquals([(SYClassFilter *)filter target], [UIAlertView class], nil);
-
 }
+#endif
 
 
 - (void) testFirstSelectorParses {
@@ -178,11 +183,20 @@
 
 
 - (void) testExplicitClassSelectorParses {
+#if TARGET_OS_IPHONE
     SYParser *parser = [[SYParser alloc] initWithSelectorString:@"view:'UITextView' somePredicate:'method'"];
+#else
+    SYParser *parser = [[SYParser alloc] initWithSelectorString:@"view:'NSTextView' somePredicate:'method'"];
+#endif
     
     id<SYFilter> filter = [parser nextFilter];
     STAssertTrue([filter isKindOfClass:[SYClassFilter class]], nil);
+    
+#if TARGET_OS_IPHONE
     STAssertEquals([(SYClassFilter *)filter target], [UITextView class], nil);
+#else
+    STAssertEquals([(SYClassFilter *)filter target], [NSTextView class], nil);
+#endif
     
     filter = [parser nextFilter];
     STAssertTrue([filter isKindOfClass:[SYPredicateFilter class]], nil);

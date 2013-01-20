@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3009123916A599960023CC56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009123816A599960023CC56 /* Cocoa.framework */; };
+		3009124B16A599960023CC56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009124A16A599960023CC56 /* SenTestingKit.framework */; };
+		3009125F16A59BCA0023CC56 /* SYArrayFilterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710DE41406AF7500A4A8F1 /* SYArrayFilterTemplate.m */; };
+		3009126016A59BCA0023CC56 /* SYParents.m in Sources */ = {isa = PBXBuildFile; fileRef = D661B50B13D7BCD200BBF32D /* SYParents.m */; };
+		3009126116A59BCA0023CC56 /* SYPredicateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D661B51013D7EFC700BBF32D /* SYPredicateFilter.m */; };
+		3009126216A59BCA0023CC56 /* SYClassFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B32E313D9D4BC000C2B81 /* SYClassFilter.m */; };
+		3009126316A59BCA0023CC56 /* SYNthElementFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D64BD1461406A78900CAF9E5 /* SYNthElementFilter.m */; };
+		3009126416A59BCA0023CC56 /* Shelley.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF39C613D3F02F000C7901 /* Shelley.m */; };
+		3009126516A59BCA0023CC56 /* SYParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D68761F113D409160057A375 /* SYParser.m */; };
+		3009126616A59BCA0023CC56 /* SYFrankSelectorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D672162A146D8E9C000B0398 /* SYFrankSelectorEngine.m */; };
+		30313F7B16AB171E00DC6D3F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30313F7A16AB171E00DC6D3F /* Cocoa.framework */; };
+		30313F7D16ABB3E300DC6D3F /* ShelleyMac-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 30313F7C16ABB3E300DC6D3F /* ShelleyMac-Prefix.pch */; };
+		306097C216A6F4D40032EC9F /* NSObject+ShelleyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 306097C016A6F4D40032EC9F /* NSObject+ShelleyExtensions.m */; };
+		3089D99616A8E4B40049CD1D /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF39C213D3EE78000C7901 /* IntegrationTests.m */; };
+		3089D99716A8E4B40049CD1D /* SYParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D68761F613D4092A0057A375 /* SYParserTests.m */; };
+		3089D99816A8E4B40049CD1D /* SYParentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6113D9F8D8008AB1F5 /* SYParentsTests.m */; };
+		3089D99916A8E4B40049CD1D /* SenTestCase+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6413D9F9E7008AB1F5 /* SenTestCase+Extensions.m */; };
+		3089D99A16A8E4B40049CD1D /* SYPredicateFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6713DA0752008AB1F5 /* SYPredicateFilterTests.m */; };
+		3089D99B16A8E4DA0049CD1D /* SYArrayFilterTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710DE41406AF7500A4A8F1 /* SYArrayFilterTemplate.m */; };
+		3089D99C16A8E4DA0049CD1D /* SYParents.m in Sources */ = {isa = PBXBuildFile; fileRef = D661B50B13D7BCD200BBF32D /* SYParents.m */; };
+		3089D99D16A8E4DA0049CD1D /* SYPredicateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D661B51013D7EFC700BBF32D /* SYPredicateFilter.m */; };
+		3089D99E16A8E4DA0049CD1D /* SYClassFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B32E313D9D4BC000C2B81 /* SYClassFilter.m */; };
+		3089D99F16A8E4DA0049CD1D /* SYNthElementFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D64BD1461406A78900CAF9E5 /* SYNthElementFilter.m */; };
+		3089D9A016A8E4DA0049CD1D /* Shelley.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF39C613D3F02F000C7901 /* Shelley.m */; };
+		3089D9A116A8E4DA0049CD1D /* SYParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D68761F113D409160057A375 /* SYParser.m */; };
+		3089D9A316A8E4DA0049CD1D /* NSObject+ShelleyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 306097C016A6F4D40032EC9F /* NSObject+ShelleyExtensions.m */; };
+		30AAE66616A8E206004A7D8A /* NSViewWithAccessibilityLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */; };
 		4D77E71915188374000D0EEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D77E71815188374000D0EEE /* QuartzCore.framework */; };
 		D610CA6213D9F8D8008AB1F5 /* SYParentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6113D9F8D8008AB1F5 /* SYParentsTests.m */; };
 		D610CA6513D9F9E7008AB1F5 /* SenTestCase+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6413D9F9E7008AB1F5 /* SenTestCase+Extensions.m */; };
@@ -49,7 +76,31 @@
 		D6F9822614071DB6000E5022 /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F9822514071DB6000E5022 /* LoadableCategory.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3009124D16A599960023CC56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6E8FF2913D3DC9200D24F43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3009123616A599960023CC56;
+			remoteInfo = ShellyMac;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3009123716A599960023CC56 /* libShellyMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libShellyMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3009123816A599960023CC56 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		3009123B16A599960023CC56 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3009123C16A599960023CC56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3009123D16A599960023CC56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3009124916A599960023CC56 /* ShellyMacTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShellyMacTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3009124A16A599960023CC56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		30313F7816AB109B00DC6D3F /* ShelleyMacTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShelleyMacTests-Prefix.pch"; sourceTree = "<group>"; };
+		30313F7A16AB171E00DC6D3F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		30313F7C16ABB3E300DC6D3F /* ShelleyMac-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShelleyMac-Prefix.pch"; sourceTree = "<group>"; };
+		30313F7E16ABBD2E00DC6D3F /* ShelleyMacTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ShelleyMacTests-Info.plist"; path = "Unit Tests/ShelleyMacTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		306097C016A6F4D40032EC9F /* NSObject+ShelleyExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ShelleyExtensions.m"; sourceTree = "<group>"; };
+		30AAE66416A8E206004A7D8A /* NSViewWithAccessibilityLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSViewWithAccessibilityLabel.h; sourceTree = "<group>"; };
+		30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSViewWithAccessibilityLabel.m; sourceTree = "<group>"; };
 		4D77E71815188374000D0EEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D610CA6013D9F8D8008AB1F5 /* SYParentsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYParentsTests.h; sourceTree = "<group>"; };
 		D610CA6113D9F8D8008AB1F5 /* SYParentsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYParentsTests.m; sourceTree = "<group>"; };
@@ -95,6 +146,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3009123416A599960023CC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3009123916A599960023CC56 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3009124516A599960023CC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30313F7B16AB171E00DC6D3F /* Cocoa.framework in Frameworks */,
+				3009124B16A599960023CC56 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6CF39A813D3E481000C7901 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,6 +185,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3009123A16A599960023CC56 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3009123B16A599960023CC56 /* AppKit.framework */,
+				3009123C16A599960023CC56 /* CoreData.framework */,
+				3009123D16A599960023CC56 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
 		D687620113D40DD30057A375 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +216,8 @@
 		D6CF39B013D3E481000C7901 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
+				30AAE66416A8E206004A7D8A /* NSViewWithAccessibilityLabel.h */,
+				30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */,
 				D648FB3713E5EA7E003FBE5A /* UIViewWithAccessibilityLabel.h */,
 				D648FB3813E5EA7E003FBE5A /* UIViewWithAccessibilityLabel.m */,
 				D6CF39C113D3EE78000C7901 /* IntegrationTests.h */,
@@ -159,8 +239,10 @@
 			isa = PBXGroup;
 			children = (
 				D6CF39B213D3E481000C7901 /* Unit Tests-Info.plist */,
+				30313F7E16ABBD2E00DC6D3F /* ShelleyMacTests-Info.plist */,
 				D6CF39B313D3E481000C7901 /* InfoPlist.strings */,
 				D6CF39B613D3E481000C7901 /* Unit Tests-Prefix.pch */,
+				30313F7816AB109B00DC6D3F /* ShelleyMacTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -177,6 +259,7 @@
 				D610CA6A13DA15A3008AB1F5 /* UIView+ShelleyExtensions.m */,
 				D6721629146D8E9C000B0398 /* SYFrankSelectorEngine.h */,
 				D672162A146D8E9C000B0398 /* SYFrankSelectorEngine.m */,
+				306097C016A6F4D40032EC9F /* NSObject+ShelleyExtensions.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -184,6 +267,7 @@
 		D6E8FF2713D3DC9200D24F43 = {
 			isa = PBXGroup;
 			children = (
+				30313F7A16AB171E00DC6D3F /* Cocoa.framework */,
 				D6E8FF3713D3DC9200D24F43 /* Shelley */,
 				D6CF39B013D3E481000C7901 /* Unit Tests */,
 				D6E8FF3413D3DC9200D24F43 /* Frameworks */,
@@ -196,6 +280,8 @@
 			children = (
 				D6E8FF3213D3DC9200D24F43 /* libShelley.a */,
 				D6CF39AC13D3E481000C7901 /* Unit Tests.octest */,
+				3009123716A599960023CC56 /* libShellyMac.a */,
+				3009124916A599960023CC56 /* ShellyMacTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +293,9 @@
 				D6E8FF3513D3DC9200D24F43 /* Foundation.framework */,
 				D6CF399413D3E195000C7901 /* UIKit.framework */,
 				D6CF399713D3E195000C7901 /* CoreGraphics.framework */,
+				3009123816A599960023CC56 /* Cocoa.framework */,
+				3009124A16A599960023CC56 /* SenTestingKit.framework */,
+				3009123A16A599960023CC56 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,6 +313,7 @@
 		D6E8FF3813D3DC9300D24F43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				30313F7C16ABB3E300DC6D3F /* ShelleyMac-Prefix.pch */,
 				D6E8FF3913D3DC9300D24F43 /* Shelley-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -232,6 +322,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3009123516A599960023CC56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6E8FF3013D3DC9200D24F43 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,12 +344,49 @@
 				D6F9822614071DB6000E5022 /* LoadableCategory.h in Headers */,
 				D672162B146D8E9C000B0398 /* SYFrankSelectorEngine.h in Headers */,
 				D6983ED9158CD5ED006EABC6 /* SelectorEngineRegistry.h in Headers */,
+				30313F7D16ABB3E300DC6D3F /* ShelleyMac-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3009123616A599960023CC56 /* ShelleyMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3009125916A599960023CC56 /* Build configuration list for PBXNativeTarget "ShelleyMac" */;
+			buildPhases = (
+				3009123316A599960023CC56 /* Sources */,
+				3009123416A599960023CC56 /* Frameworks */,
+				3009123516A599960023CC56 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShelleyMac;
+			productName = ShellyMac;
+			productReference = 3009123716A599960023CC56 /* libShellyMac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3009124816A599960023CC56 /* ShelleyMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3009125C16A599960023CC56 /* Build configuration list for PBXNativeTarget "ShelleyMacTests" */;
+			buildPhases = (
+				3009124416A599960023CC56 /* Sources */,
+				3009124516A599960023CC56 /* Frameworks */,
+				3009124616A599960023CC56 /* Resources */,
+				3009124716A599960023CC56 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3009124E16A599960023CC56 /* PBXTargetDependency */,
+			);
+			name = ShelleyMacTests;
+			productName = ShellyMacTests;
+			productReference = 3009124916A599960023CC56 /* ShellyMacTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		D6CF39AB13D3E481000C7901 /* Unit Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6CF39BB13D3E481000C7901 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
@@ -294,7 +428,7 @@
 		D6E8FF2913D3DC9200D24F43 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = ThoughtWorks;
 			};
 			buildConfigurationList = D6E8FF2C13D3DC9200D24F43 /* Build configuration list for PBXProject "Shelley" */;
@@ -311,11 +445,20 @@
 			targets = (
 				D6E8FF3113D3DC9200D24F43 /* Shelley */,
 				D6CF39AB13D3E481000C7901 /* Unit Tests */,
+				3009123616A599960023CC56 /* ShelleyMac */,
+				3009124816A599960023CC56 /* ShelleyMacTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3009124616A599960023CC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6CF39A913D3E481000C7901 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,6 +470,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3009124716A599960023CC56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		D6CF39AA13D3E481000C7901 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +499,43 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3009123316A599960023CC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3009125F16A59BCA0023CC56 /* SYArrayFilterTemplate.m in Sources */,
+				3009126016A59BCA0023CC56 /* SYParents.m in Sources */,
+				3009126116A59BCA0023CC56 /* SYPredicateFilter.m in Sources */,
+				3009126216A59BCA0023CC56 /* SYClassFilter.m in Sources */,
+				3009126316A59BCA0023CC56 /* SYNthElementFilter.m in Sources */,
+				3009126416A59BCA0023CC56 /* Shelley.m in Sources */,
+				3009126516A59BCA0023CC56 /* SYParser.m in Sources */,
+				3009126616A59BCA0023CC56 /* SYFrankSelectorEngine.m in Sources */,
+				306097C216A6F4D40032EC9F /* NSObject+ShelleyExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3009124416A599960023CC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3089D99B16A8E4DA0049CD1D /* SYArrayFilterTemplate.m in Sources */,
+				3089D99C16A8E4DA0049CD1D /* SYParents.m in Sources */,
+				3089D99D16A8E4DA0049CD1D /* SYPredicateFilter.m in Sources */,
+				3089D99E16A8E4DA0049CD1D /* SYClassFilter.m in Sources */,
+				3089D99F16A8E4DA0049CD1D /* SYNthElementFilter.m in Sources */,
+				3089D9A016A8E4DA0049CD1D /* Shelley.m in Sources */,
+				3089D9A116A8E4DA0049CD1D /* SYParser.m in Sources */,
+				3089D9A316A8E4DA0049CD1D /* NSObject+ShelleyExtensions.m in Sources */,
+				3089D99616A8E4B40049CD1D /* IntegrationTests.m in Sources */,
+				3089D99716A8E4B40049CD1D /* SYParserTests.m in Sources */,
+				3089D99816A8E4B40049CD1D /* SYParentsTests.m in Sources */,
+				3089D99916A8E4B40049CD1D /* SenTestCase+Extensions.m in Sources */,
+				3089D99A16A8E4B40049CD1D /* SYPredicateFilterTests.m in Sources */,
+				30AAE66616A8E206004A7D8A /* NSViewWithAccessibilityLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D6CF39A713D3E481000C7901 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +575,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3009124E16A599960023CC56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3009123616A599960023CC56 /* ShelleyMac */;
+			targetProxy = 3009124D16A599960023CC56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D6CF39B313D3E481000C7901 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -394,6 +595,122 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3009125A16A599960023CC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Shelley/ShelleyMac-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3009125B16A599960023CC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Shelley/ShelleyMac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3009125D16A599960023CC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Unit Tests/ShelleyMacTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Unit Tests/ShelleyMacTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3009125E16A599960023CC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Unit Tests/ShelleyMacTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Unit Tests/ShelleyMacTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		D6CF39BC13D3E481000C7901 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -490,6 +807,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3009125916A599960023CC56 /* Build configuration list for PBXNativeTarget "ShelleyMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3009125A16A599960023CC56 /* Debug */,
+				3009125B16A599960023CC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3009125C16A599960023CC56 /* Build configuration list for PBXNativeTarget "ShelleyMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3009125D16A599960023CC56 /* Debug */,
+				3009125E16A599960023CC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D6CF39BB13D3E481000C7901 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

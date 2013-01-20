@@ -15,14 +15,26 @@
 
 
 - (void)testReturnsAllAncestors {
-    UIView *view = [[[UIView alloc] init] autorelease];
-    UIView *viewA = [[[UIView alloc] init] autorelease];
-    UIView *viewAA = [[[UIButton alloc] init] autorelease];
-    UIView *viewAB = [[[UIView alloc] init] autorelease];
-    UIView *viewABA = [[[UIView alloc] init] autorelease];
-    UIView *viewB = [[[UIButton alloc] init] autorelease];
-    UIView *viewBA = [[[UIView alloc] init] autorelease];
-    UIView *viewC = [[[UIView alloc] init] autorelease];
+    ShelleyTestView *view = [[[ShelleyTestView alloc] init] autorelease];
+    ShelleyTestView *viewA = [[[ShelleyTestView alloc] init] autorelease];
+    
+#if TARGET_OS_IPHONE
+    ShelleyTestView *viewAA = [[[UIButton alloc] init] autorelease];
+#else
+    ShelleyTestView *viewAA = [[[NSButton alloc] init] autorelease];
+#endif
+    
+    ShelleyTestView *viewAB = [[[ShelleyTestView alloc] init] autorelease];
+    ShelleyTestView *viewABA = [[[ShelleyTestView alloc] init] autorelease];
+    
+    #if TARGET_OS_IPHONE
+    ShelleyTestView *viewB = [[[UIButton alloc] init] autorelease];
+#else
+    ShelleyTestView *viewB = [[[NSButton alloc] init] autorelease];
+#endif
+    
+    ShelleyTestView *viewBA = [[[ShelleyTestView alloc] init] autorelease];
+    ShelleyTestView *viewC = [[[ShelleyTestView alloc] init] autorelease];
     
     [view addSubview:viewA];
     [viewA addSubview:viewAA];

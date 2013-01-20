@@ -187,11 +187,23 @@
     if( ![parsedSection hasNoArgs] ){
         return nil;
     }
-        
-    NSString *firstParam = [[parsedSection params] objectAtIndex:0];
+    
+    NSString *firstParam = nil;
+    
+    if ([[parsedSection params] count] > 0)
+    {
+        firstParam = [[parsedSection params] objectAtIndex:0];
+    }
+    else
+    {
+        [NSException raise:@"missing paramater"
+					format:@"no paramater found at position %lu in string \"%@\"", (unsigned long) [_scanner scanLocation], [_scanner string] ];
+    }
  
  
     Class shorthandClass = nil;
+    
+#if TARGET_OS_IPHONE
     if( [firstParam isEqualToString:@"view"] )
         shorthandClass = [UIView class];
     else if( [firstParam isEqualToString:@"button"] )
@@ -216,6 +228,16 @@
         shorthandClass = [UITableViewCell class];
     else if( [firstParam isEqualToString:@"threePartButton"] )
       shorthandClass = NSClassFromString(@"UIThreePartButton");
+#else
+    if( [firstParam isEqualToString:@"view"] )
+        shorthandClass = [NSObject class];
+    else if( [firstParam isEqualToString:@"button"] )
+        shorthandClass = [NSButton class];
+    else if( [firstParam isEqualToString:@"textField"] )
+        shorthandClass = [NSTextField class];
+    else if( [firstParam isEqualToString:@"tableView"] )
+        shorthandClass = [NSTableView class];
+#endif
 
     if( shorthandClass )
         return [[[SYClassFilter alloc] initWithClass:shorthandClass] autorelease];
@@ -238,7 +260,7 @@
         if( [firstParam isEqualToString:@"first"] )
             return [[[SYNthElementFilter alloc] initWithIndex:0] autorelease];
         else if( [firstParam isEqualToString:@"descendant"] )
-            return [[[SYClassFilter alloc] initWithClass:[UIView class] includeSelf:YES] autorelease];
+            return [[[SYClassFilter alloc] initWithClass:[ShelleyView class] includeSelf:YES] autorelease];
     }else if( [[parsedSection args] count] == 1 ){
         if( [firstParam isEqualToString:@"view"] ) {
             NSString *firstArg = [[parsedSection args] objectAtIndex:0];

@@ -19,6 +19,10 @@ def build_project_for(arch)
   sh "xcodebuild -project #{PROJECT_PATH} -scheme #{SCHEME} -configuration Release -sdk #{sdk} #{VERSION_FLAGS} BUILD_DIR=build clean build"
 end
 
+def build_osx_lib
+  sh "xcodebuild -project #{PROJECT_PATH} -target ShelleyMac -configuration Release #{VERSION_FLAGS} BUILD_DIR=build clean build"
+end
+
 desc "Build the arm library"
 task :build_iphone_lib do
   build_project_for('iphoneos')
@@ -27,6 +31,11 @@ end
 desc "Build the i386 library"
 task :build_simulator_lib do
   build_project_for('iphonesimulator')
+end
+
+desc "Build the Mac library"
+task :build_osx_lib do
+    build_osx_lib
 end
 
 task :combine_libraries do
@@ -45,6 +54,6 @@ task :prep_build do
 end
 
 desc "Build a univeral library for both iphone and iphone simulator"
-task :build_lib => [:clean, :prep_build, :build_iphone_lib,:build_simulator_lib,:combine_libraries]
+task :build_lib => [:clean, :prep_build, :build_iphone_lib,:build_simulator_lib,:combine_libraries,:build_osx_lib]
 
 task :default => :build_lib

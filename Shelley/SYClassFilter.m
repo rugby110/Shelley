@@ -11,17 +11,57 @@
 @implementation SYClassFilter
 @synthesize target=_targetClass;
 
-+ (NSArray *) allDescendantsOf:(UIView *)view{
++ (NSArray *) allDescendantsOf:(ShelleyView *)view{
     NSMutableArray *descendants = [NSMutableArray array];
-    for (UIView *subview in [view subviews]) {
+    
+#if TARGET_OS_IPHONE
+    for (ShelleyView *subview in [view subviews]) {
         [descendants addObject:subview];
         [descendants addObjectsFromArray:[self allDescendantsOf:subview]];
     }
+#else
+    if ([view isKindOfClass: [NSApplication class]]) {
+        for (NSWindow* window in [((NSApplication*) view) windows]) {
+            [descendants addObject: window];
+            [descendants addObjectsFromArray: [self allDescendantsOf: window]];
+        }
+        
+        [descendants addObjectsFromArray: [self allDescendantsOf: [((NSApplication*) view) menu]]];
+    }
+    else if ([view isKindOfClass: [NSWindow class]]) {
+        [descendants addObject: [((NSWindow*) view) contentView]];
+        [descendants addObjectsFromArray: [self allDescendantsOf: [((NSWindow*) view) contentView]]];
+    }
+    else if ([view isKindOfClass: [NSMenu class]]) {
+        for (NSMenuItem* item in [((NSMenu*) view) itemArray]) {
+            [descendants addObject: item];
+            [descendants addObjectsFromArray: [self allDescendantsOf: item]];
+        }
+    }
+    else if ([view isKindOfClass: [NSMenuItem class]]) {
+        for (NSMenuItem* item in [[((NSMenuItem*) view) submenu] itemArray]) {
+            [descendants addObject: item];
+            [descendants addObjectsFromArray: [self allDescendantsOf: item]];
+        }
+    }
+    else if ([view isKindOfClass: [NSView class]])
+    {
+        for (NSView *subview in [((NSView*) view) subviews]) {
+            [descendants addObject:subview];
+            [descendants addObjectsFromArray:[self allDescendantsOf:subview]];
+        }
+    }
+    
+#endif
     return descendants;
 }
 
 - (id)initWithClass:(Class)class {
+#if TARGET_OS_IPHONE
     return [self initWithClass:class includeSelf:NO];
+#else
+    return [self initWithClass:class includeSelf:YES];
+#endif
 }
 
 - (id)initWithClass:(Class)class includeSelf:(BOOL)includeSelf {
@@ -38,7 +78,7 @@
     _justFilter = doNotDescend;
 }
 
--(NSArray *)viewsToConsiderFromView:(UIView *)view{
+-(NSArray *)viewsToConsiderFromView:(ShelleyView *)view{
     if( _justFilter )
         return [NSArray arrayWithObject:view];
     
@@ -48,12 +88,12 @@
 }
 
 
--(NSArray *)applyToView:(UIView *)view{
+-(NSArray *)applyToView:(ShelleyView *)view{
     NSArray *allViews = [self viewsToConsiderFromView:view];
 	
     // TODO: look at using predicates
     NSMutableArray *filteredDescendants = [NSMutableArray array];
-    for (UIView *v in allViews) {
+    for (ShelleyView *v in allViews) {
         if( [v isKindOfClass:_targetClass] ){
             [filteredDescendants addObject:v];
         }

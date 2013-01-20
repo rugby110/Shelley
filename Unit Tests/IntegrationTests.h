@@ -12,19 +12,26 @@
 
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "Shelley.h"
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
+
 //#import "application_headers" as required
 
 
 @interface IntegrationTests : SenTestCase {
-    UIView *view;
-    UIView *viewA;
-    UIView *viewAA;
-    UIView *viewAB;
-    UIView *viewABA;
-    UIView *viewB;
-    UIView *viewBA;
-    UIView *viewC;
+    ShelleyTestView *view;
+    ShelleyTestView *viewA;
+    ShelleyTestView *viewAA;
+    ShelleyTestView *viewAB;
+    ShelleyTestView *viewABA;
+    ShelleyTestView *viewB;
+    ShelleyTestView *viewBA;
+    ShelleyTestView *viewC;
 }
 
 @end
