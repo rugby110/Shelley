@@ -18,7 +18,7 @@ def build_project_for(arch)
 end
 
 def build_osx_lib
-  sh "xcodebuild -project #{PROJECT_PATH} -target ShelleyMac -configuration Release #{VERSION_FLAGS} BUILD_DIR=build clean build"
+  sh "xcodebuild -project #{PROJECT_PATH} -target ShelleyMac -configuration Release BUILD_DIR=build clean build"
 end
 
 desc "Build the arm library"
