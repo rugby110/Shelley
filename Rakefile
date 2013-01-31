@@ -5,8 +5,6 @@ def discover_latest_sdk_version
 end
 
 PRODUCT_NAME="Shelley"
-PRODUCT_VERSION=File.read("version").strip
-VERSION_FLAGS="OTHER_CFLAGS='$(inherited) -DPRODUCT_VERSION=#{PRODUCT_VERSION}'"
 PROJECT_PATH="#{PRODUCT_NAME}.xcodeproj"
 SCHEME=PRODUCT_NAME
 
@@ -16,7 +14,7 @@ end
 
 def build_project_for(arch)
   sdk = arch+discover_latest_sdk_version
-  sh "xcodebuild -project #{PROJECT_PATH} -scheme #{SCHEME} -configuration Release -sdk #{sdk} #{VERSION_FLAGS} BUILD_DIR=build clean build"
+  sh "xcodebuild -project #{PROJECT_PATH} -scheme #{SCHEME} -configuration Release -sdk #{sdk} BUILD_DIR=build clean build"
 end
 
 def build_osx_lib

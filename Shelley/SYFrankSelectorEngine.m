@@ -11,7 +11,7 @@
 
 #define xstr(s) str(s)
 #define str(s) #s
-#define VERSIONED_NAME "Shelley " xstr(PRODUCT_VERSION)
+#define VERSIONED_NAME "Shelley " xstr(SHELLEY_PRODUCT_VERSION)
 const unsigned char what_string[] = "@(#)" VERSIONED_NAME "\n";
 
 static NSString *const registeredName = @"shelley_compat";
