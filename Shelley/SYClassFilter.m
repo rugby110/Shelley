@@ -8,6 +8,12 @@
 
 #import "SYClassFilter.h"
 
+#if !TARGET_OS_IPHONE
+@interface NSApplication (FrankAutomation)
+- (NSSet*) FEX_menus;
+@end
+#endif
+
 @implementation SYClassFilter
 @synthesize target=_targetClass;
 
@@ -27,6 +33,12 @@
         }
         
         [descendants addObjectsFromArray: [self allDescendantsOf: [((NSApplication*) view) menu]]];
+        
+        for (NSMenu* menu in [((NSApplication*) view) FEX_menus])
+        {
+            [descendants addObject: menu];
+            [descendants addObjectsFromArray: [self allDescendantsOf: menu]];
+        }
     }
     else if ([view isKindOfClass: [NSWindow class]]) {
         [descendants addObject: [((NSWindow*) view) contentView]];
