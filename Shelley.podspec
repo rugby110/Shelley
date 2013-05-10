@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   }
   s.source = {
     :git => 'https://github.com/TestingWithFrank/Shelley.git',
-    'commit' => '0034a18d3434ff7cdeaaa5f795fa938fd05adc30'
+    :tag => "#{s.version}"
   }
 
   s.ios.source_files = 'Source/Shared/**/*.{h,m}', 'Source/iOS/**/*.{h,m}'
