@@ -278,8 +278,17 @@
     [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:subviewB]];
 
     selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent"] selectFrom:tableView];
-    [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObjects:cellB,tableView,nil]];
-    
+    NSArray *expectedViews;
+
+    if (NSClassFromString(@"UITableViewCellScrollView")) { // iOS 7 +
+        expectedViews = [NSArray arrayWithObjects:cellB,tableView,[cellB superview],nil];
+    } else { // iOS 6 -
+        expectedViews = [NSArray arrayWithObjects:cellB,tableView,nil];
+    }
+
+    [self assertArray:selectedViews containsExactlyObjects:expectedViews];
+
+
 #if TARGET_OS_IPHONE
     selectedViews = [[Shelley withSelectorString:@"view marked:'cell B' parent view:'UITableViewCell'"] selectFrom:tableView];
     [self assertArray:selectedViews containsExactlyObjects:[NSArray arrayWithObject:cellB]];
