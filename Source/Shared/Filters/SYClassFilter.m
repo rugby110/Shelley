@@ -26,41 +26,12 @@
         [descendants addObjectsFromArray:[self allDescendantsOf:subview]];
     }
 #else
-    if ([view isKindOfClass: [NSApplication class]]) {
-        for (NSWindow* window in [((NSApplication*) view) windows]) {
-            [descendants addObject: window];
-            [descendants addObjectsFromArray: [self allDescendantsOf: window]];
-        }
-        
-        [descendants addObjectsFromArray: [self allDescendantsOf: [((NSApplication*) view) menu]]];
-        
-        for (NSMenu* menu in [((NSApplication*) view) FEX_menus])
-        {
-            [descendants addObject: menu];
-            [descendants addObjectsFromArray: [self allDescendantsOf: menu]];
-        }
-    }
-    else if ([view isKindOfClass: [NSWindow class]]) {
-        [descendants addObject: [((NSWindow*) view) contentView]];
-        [descendants addObjectsFromArray: [self allDescendantsOf: [((NSWindow*) view) contentView]]];
-    }
-    else if ([view isKindOfClass: [NSMenu class]]) {
-        for (NSMenuItem* item in [((NSMenu*) view) itemArray]) {
-            [descendants addObject: item];
-            [descendants addObjectsFromArray: [self allDescendantsOf: item]];
-        }
-    }
-    else if ([view isKindOfClass: [NSMenuItem class]]) {
-        for (NSMenuItem* item in [[((NSMenuItem*) view) submenu] itemArray]) {
-            [descendants addObject: item];
-            [descendants addObjectsFromArray: [self allDescendantsOf: item]];
-        }
-    }
-    else if ([view isKindOfClass: [NSView class]])
+    if ([view respondsToSelector: @selector(FEX_children)])
     {
-        for (NSView *subview in [((NSView*) view) subviews]) {
-            [descendants addObject:subview];
-            [descendants addObjectsFromArray:[self allDescendantsOf:subview]];
+        for (id child in [view performSelector: @selector(FEX_children)])
+        {
+            [descendants addObject: child];
+            [descendants addObjectsFromArray: [self allDescendantsOf: child]];
         }
     }
     

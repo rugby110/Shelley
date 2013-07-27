@@ -24,25 +24,13 @@
     id currentView = view;
     
     while (currentView != nil) {
-        if ([currentView isKindOfClass: [NSApplication class]]) {
+        if ([currentView respondsToSelector: @selector(FEX_parent)])
+        {
+            currentView = [currentView performSelector: @selector(FEX_parent)];
+        }
+        else
+        {
             currentView = nil;
-        }
-        else if ([currentView isKindOfClass: [NSWindow class]]) {
-            currentView = [NSApplication sharedApplication];
-        }
-        else if ([currentView isKindOfClass: [NSMenuItem class]]) {
-            currentView = [((NSMenuItem*) currentView) parentItem];
-            
-            if (currentView == nil) {
-                currentView = [NSApplication sharedApplication];
-            }
-        }
-        else if ([currentView isKindOfClass: [NSView class]]) {
-            currentView = [((NSView*) currentView) superview];
-            
-            if (currentView == nil) {
-                currentView = [((NSView*) currentView) window];
-            }
         }
         
         if (currentView != nil) {
