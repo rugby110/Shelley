@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Shelley'
-  s.version = '1.0'
+  s.version = '1.0.1'
   s.summary = 'View selection engine used in Frank.'
   s.homepage = 'https://github.com/testingwithfrank/Shelley'
   s.license = 'Apache2'
