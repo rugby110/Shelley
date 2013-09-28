@@ -56,7 +56,7 @@ desc "Build a univeral library for both iphone and iphone simulator"
 task :build_lib => [:clean, :prep_build, :build_iphone_lib,:build_simulator_lib,:combine_libraries,:build_osx_lib]
 
 task :test do
-  sh %Q|xctool -project #{PROJECT_PATH} -scheme "#{TEST_SCHEME}" test|
+  sh %Q|xctool ONLY_ACTIVE_ARCH=NO -project #{PROJECT_PATH} -scheme "#{TEST_SCHEME}" test|
 end
 
 task :travis => [:test]
