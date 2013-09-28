@@ -52,7 +52,7 @@
     STAssertTrue([filter isKindOfClass:[SYPredicateFilter class]], nil);
     
     SYPredicateFilter *predicateFilter = (SYPredicateFilter *)filter;
-    STAssertEquals((SEL)[predicateFilter selector], @selector(noArgMethod), nil);
+    STAssertEquals([predicateFilter selector], @selector(noArgMethod), nil);
     STAssertEquals([[predicateFilter args] count], (NSUInteger)0, nil );
 
 }
@@ -64,7 +64,7 @@
     STAssertTrue([filter isKindOfClass:[SYPredicateFilter class]], nil);
     
     SYPredicateFilter *predicateFilter = (SYPredicateFilter *)filter;
-    STAssertEquals((SEL)[predicateFilter selector], @selector(singleArg:), nil);
+    STAssertEquals([predicateFilter selector], @selector(singleArg:), nil);
     STAssertEquals([[predicateFilter args] count], (NSUInteger)1,nil );
     
     NSNumber *firstArg = [[predicateFilter args] objectAtIndex:0];
@@ -78,7 +78,7 @@
     STAssertTrue([filter isKindOfClass:[SYPredicateFilter class]], nil);
     
     SYPredicateFilter *predicateFilter = (SYPredicateFilter *)filter;
-    STAssertEquals((SEL)[predicateFilter selector], @selector(argOne:argTwo:argThree:), nil);
+    STAssertEquals([predicateFilter selector], @selector(argOne:argTwo:argThree:), nil);
     STAssertEquals([[predicateFilter args] count], (NSUInteger)3,nil );
     
     NSNumber *firstArg = [[predicateFilter args] objectAtIndex:0];
@@ -98,7 +98,7 @@
     STAssertTrue([filter isKindOfClass:[SYPredicateFilter class]], nil);
     
     SYPredicateFilter *predicateFilter = (SYPredicateFilter *)filter;
-    STAssertEquals((SEL)[predicateFilter selector], @selector(foo:), nil);
+    STAssertEquals([predicateFilter selector], @selector(foo:), nil);
     STAssertEquals([[predicateFilter args] count], (NSUInteger)1,nil );
     STAssertTrue([[[predicateFilter args] objectAtIndex:0] isEqualToString:@"xyz"],nil );
 }
@@ -109,7 +109,7 @@
     id<SYFilter> filter = [parser nextFilter];
     
     SYPredicateFilter *predicateFilter = (SYPredicateFilter *)filter;
-    STAssertEquals((SEL)[predicateFilter selector], @selector(foo:), nil);
+    STAssertEquals([predicateFilter selector], @selector(foo:), nil);
     STAssertEquals([[predicateFilter args] count], (NSUInteger)1,nil );
     STAssertTrue([[[predicateFilter args] objectAtIndex:0] isEqualToString:@"xyz"],nil );
 }
