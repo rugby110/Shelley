@@ -82,7 +82,7 @@
     STAssertEquals([[predicateFilter args] count], (NSUInteger)3,nil );
     
     NSNumber *firstArg = [[predicateFilter args] objectAtIndex:0];
-    STAssertTrue( [firstArg isEqualToNumber:[NSNumber numberWithInt:1234]], nil);
+    STAssertTrue( [firstArg isEqualToNumber:[NSNumber numberWithInt:123]], nil);
 
     NSString *secondArg = [[predicateFilter args] objectAtIndex:1];
     STAssertTrue( [secondArg isEqualToString:@"foo"], nil);
