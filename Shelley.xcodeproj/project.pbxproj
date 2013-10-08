@@ -18,6 +18,7 @@
 		3089D99A16A8E4B40049CD1D /* SYPredicateFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6713DA0752008AB1F5 /* SYPredicateFilterTests.m */; };
 		3089D9A316A8E4DA0049CD1D /* NSObject+ShelleyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 306097C016A6F4D40032EC9F /* NSObject+ShelleyExtensions.m */; };
 		30AAE66616A8E206004A7D8A /* NSViewWithAccessibilityLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */; };
+		30F09A4B17FA6ABD002C98B4 /* NSView+FEXHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F09A4A17FA6ABD002C98B4 /* NSView+FEXHierarchy.m */; };
 		4D77E71915188374000D0EEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D77E71815188374000D0EEE /* QuartzCore.framework */; };
 		D610CA6213D9F8D8008AB1F5 /* SYParentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6113D9F8D8008AB1F5 /* SYParentsTests.m */; };
 		D610CA6513D9F9E7008AB1F5 /* SenTestCase+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D610CA6413D9F9E7008AB1F5 /* SenTestCase+Extensions.m */; };
@@ -100,6 +101,8 @@
 		306097C016A6F4D40032EC9F /* NSObject+ShelleyExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ShelleyExtensions.m"; sourceTree = "<group>"; };
 		30AAE66416A8E206004A7D8A /* NSViewWithAccessibilityLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSViewWithAccessibilityLabel.h; sourceTree = "<group>"; };
 		30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSViewWithAccessibilityLabel.m; sourceTree = "<group>"; };
+		30F09A4917FA6ABD002C98B4 /* NSView+FEXHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+FEXHierarchy.h"; sourceTree = "<group>"; };
+		30F09A4A17FA6ABD002C98B4 /* NSView+FEXHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+FEXHierarchy.m"; sourceTree = "<group>"; };
 		4D77E71815188374000D0EEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D610CA6013D9F8D8008AB1F5 /* SYParentsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYParentsTests.h; sourceTree = "<group>"; };
 		D610CA6113D9F8D8008AB1F5 /* SYParentsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYParentsTests.m; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				D610CA6413D9F9E7008AB1F5 /* SenTestCase+Extensions.m */,
 				D610CA6613DA0752008AB1F5 /* SYPredicateFilterTests.h */,
 				D610CA6713DA0752008AB1F5 /* SYPredicateFilterTests.m */,
+				30F09A4917FA6ABD002C98B4 /* NSView+FEXHierarchy.h */,
+				30F09A4A17FA6ABD002C98B4 /* NSView+FEXHierarchy.m */,
 			);
 			path = "Unit Tests";
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				F85939E5173452100074CB9E /* SYParents.m in Sources */,
 				F85939EB173452110074CB9E /* SYPredicateFilter.m in Sources */,
 				F85939F5173452110074CB9E /* Shelley.m in Sources */,
+				30F09A4B17FA6ABD002C98B4 /* NSView+FEXHierarchy.m in Sources */,
 				F8593A01173452110074CB9E /* SYParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
