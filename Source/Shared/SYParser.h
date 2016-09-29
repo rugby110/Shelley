@@ -1,13 +1,13 @@
 #import <Foundation/Foundation.h>
 #import "SYFilter.h"
 
-@interface SYParser : NSObject {
-    NSScanner *_scanner;
-    NSCharacterSet *_paramChars;
-    NSCharacterSet *_numberChars;
-    NSMutableArray *_currentParams;
-    NSMutableArray *_currentArgs;
-}
+@interface SYParser : NSObject
+
+@property (nonatomic, readonly) NSScanner *scanner;
+@property (nonatomic, readonly) NSCharacterSet *paramChars;
+@property (nonatomic, readonly) NSCharacterSet *numberChars;
+@property (nonatomic, readonly) NSMutableArray *currentParams;
+@property (nonatomic, readonly) NSMutableArray *currentArgs;
 
 - (id)initWithSelectorString:(NSString *)selectorString;
 - (id<SYFilter>)nextFilter;

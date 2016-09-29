@@ -75,9 +75,9 @@ BOOL substringMatch(NSString *actualString, NSString *expectedSubstring){
 
 -(NSArray *)rowIndexPathList {
 	NSMutableArray *rowIndexPathList = [NSMutableArray array];
-	int numberOfSections = [self numberOfSections];
-	for(int i=0; i< numberOfSections; i++) {
-		int numberOfRowsInSection = [self numberOfRowsInSection:i];
+	NSInteger numberOfSections = [self numberOfSections];
+	for(NSInteger i=0; i< numberOfSections; i++) {
+		NSInteger numberOfRowsInSection = [self numberOfRowsInSection:i];
 		for(int j=0; j< numberOfRowsInSection; j++) {
 			[rowIndexPathList addObject:[NSIndexPath indexPathForRow:j inSection:i]];
 		}
@@ -91,8 +91,8 @@ BOOL substringMatch(NSString *actualString, NSString *expectedSubstring){
 	
 	NSIndexPath *indexPathForLastVisibleRow = [indexPathsForVisibleRows lastObject];
 	
-	int indexOfLastVisibleRow = [rowIndexPathList indexOfObject:indexPathForLastVisibleRow];
-	int scrollToIndex = indexOfLastVisibleRow + numberOfRows;
+	NSInteger indexOfLastVisibleRow = [rowIndexPathList indexOfObject:indexPathForLastVisibleRow];
+	NSInteger scrollToIndex = indexOfLastVisibleRow + numberOfRows;
 	if (scrollToIndex >= rowIndexPathList.count) {
 		scrollToIndex = rowIndexPathList.count - 1;
 	}
@@ -101,8 +101,8 @@ BOOL substringMatch(NSString *actualString, NSString *expectedSubstring){
 }
 
 -(void) scrollToBottom {
-    int numberOfSections = [self numberOfSections];
-    int numberOfRowsInSection = [self numberOfRowsInSection:numberOfSections-1];
+    NSInteger numberOfSections = [self numberOfSections];
+    NSInteger numberOfRowsInSection = [self numberOfRowsInSection:numberOfSections-1];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:numberOfRowsInSection-1 inSection:numberOfSections-1];
     [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }

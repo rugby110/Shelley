@@ -4,33 +4,29 @@
 #import "SYClassFilter.h"
 #import "SYNthElementFilter.h"
 
-@interface SYSectionParser : NSObject {
-    NSScanner *_scanner;
-    NSCharacterSet *_paramChars;
-    NSCharacterSet *_numberChars;
-    NSMutableArray *_params;
-    NSMutableArray *_args;
-}
-@property(readonly) NSArray *params, *args;
+@interface SYSectionParser : NSObject
 
-- (id)initWithScanner: (NSScanner *)scanner;
-- (void) parse;
-- (BOOL) hasNoArgs;
+@property (readonly) NSMutableArray *params, *args;
+@property (nonatomic, readonly) NSScanner *scanner;
+@property (nonatomic, readonly) NSCharacterSet *paramChars;
+@property (nonatomic, readonly) NSCharacterSet *numberChars;
+
+- (id)initWithScanner:(NSScanner *)scanner;
+- (void)parse;
+- (BOOL)hasNoArgs;
+
 @end
 
 @implementation SYSectionParser
-@synthesize params=_params,args=_args;
 
 - (id)initWithScanner: (NSScanner *)scanner
 {
     self = [super init];
-    if (self) {
-        _scanner = scanner;
-        _paramChars = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"];
-        _numberChars = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
-        _params = [[NSMutableArray alloc] init];
-        _args = [[NSMutableArray alloc] init];
-    }
+    _scanner = scanner;
+    _paramChars = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"];
+    _numberChars = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
+    _params = [[NSMutableArray alloc] init];
+    _args = [[NSMutableArray alloc] init];
     return self;
 }
 
@@ -39,13 +35,13 @@
     return [_args count] == 0;
 }
 
-- (BOOL) parseParamWithoutColon
+- (BOOL)parseParamWithoutColon
 {
     NSString *paramString;
     if ([_scanner scanCharactersFromSet:_paramChars intoString:&paramString]) {
-        [_params addObject:paramString];
+        [self.params addObject:paramString];
         return YES;
-    } else{
+    } else {
         return NO;
     }
 }
@@ -155,15 +151,12 @@
 - (id)initWithSelectorString:(NSString *)selectorString
 {
     self = [super init];
-    if (self) {
-        _scanner = [[NSScanner alloc] initWithString:selectorString];
-        [_scanner setCharactersToBeSkipped:nil];
-        _paramChars = [NSCharacterSet letterCharacterSet];
-        _numberChars = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
-        _currentParams = [[NSMutableArray alloc] init];
-        _currentArgs = [[NSMutableArray alloc] init];
-
-    }
+    _scanner = [[NSScanner alloc] initWithString:selectorString];
+    [_scanner setCharactersToBeSkipped:nil];
+    _paramChars = [NSCharacterSet letterCharacterSet];
+    _numberChars = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
+    _currentParams = [[NSMutableArray alloc] init];
+    _currentArgs = [[NSMutableArray alloc] init];
     return self;
 }
 

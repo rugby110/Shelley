@@ -58,9 +58,6 @@
 		30313F7816AB109B00DC6D3F /* ShelleyMacTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShelleyMacTests-Prefix.pch"; sourceTree = "<group>"; };
 		30313F7A16AB171E00DC6D3F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		30313F7C16ABB3E300DC6D3F /* ShelleyMac-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShelleyMac-Prefix.pch"; sourceTree = "<group>"; };
-		30313F7E16ABBD2E00DC6D3F /* ShelleyMacTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ShelleyMacTests-Info.plist"; path = "Unit Tests/ShelleyMacTests-Info.plist"; sourceTree = SOURCE_ROOT; };
-		30AAE66416A8E206004A7D8A /* NSViewWithAccessibilityLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSViewWithAccessibilityLabel.h; sourceTree = "<group>"; };
-		30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSViewWithAccessibilityLabel.m; sourceTree = "<group>"; };
 		30F09A4917FA6ABD002C98B4 /* NSView+FEXHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+FEXHierarchy.h"; sourceTree = "<group>"; };
 		30F09A4A17FA6ABD002C98B4 /* NSView+FEXHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+FEXHierarchy.m"; sourceTree = "<group>"; };
 		4D77E71815188374000D0EEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -143,8 +140,6 @@
 		D6CF39B013D3E481000C7901 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				30AAE66416A8E206004A7D8A /* NSViewWithAccessibilityLabel.h */,
-				30AAE66516A8E206004A7D8A /* NSViewWithAccessibilityLabel.m */,
 				D648FB3713E5EA7E003FBE5A /* UIViewWithAccessibilityLabel.h */,
 				D648FB3813E5EA7E003FBE5A /* UIViewWithAccessibilityLabel.m */,
 				D6CF39C113D3EE78000C7901 /* IntegrationTests.h */,
@@ -168,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				D6CF39B213D3E481000C7901 /* Unit Tests-Info.plist */,
-				30313F7E16ABBD2E00DC6D3F /* ShelleyMacTests-Info.plist */,
 				D6CF39B313D3E481000C7901 /* InfoPlist.strings */,
 				D6CF39B613D3E481000C7901 /* Unit Tests-Prefix.pch */,
 				30313F7816AB109B00DC6D3F /* ShelleyMacTests-Prefix.pch */,

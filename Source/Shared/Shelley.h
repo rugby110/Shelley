@@ -4,9 +4,9 @@
 
 @class SYParser;
 
-@interface Shelley : NSObject {
-    SYParser *_parser;
-}
+@interface Shelley : NSObject
+
+@property (nonatomic, readonly) SYParser *parser;
 
 + (Shelley *) withSelectorString:(NSString *)selectorString;
 - (id)initWithSelectorString:(NSString *)selectorString;
