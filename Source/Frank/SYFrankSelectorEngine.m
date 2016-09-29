@@ -1,11 +1,3 @@
-//
-//  SYFrankSelectorEngine.m
-//  Shelley
-//
-//  Created by Thought Worker on 11/11/11.
-//  Copyright (c) 2011 ThoughtWorks. All rights reserved.
-//
-
 #import "SYFrankSelectorEngine.h"
 #import "Shelley.h"
 
@@ -18,23 +10,19 @@ static NSString *const registeredName = @"shelley_compat";
 
 @implementation SYFrankSelectorEngine
 
-+(void)load{
++ (void)load
+{
     SYFrankSelectorEngine *registeredInstance = [[self alloc]init];
     [SelectorEngineRegistry registerSelectorEngine:registeredInstance WithName:registeredName];
     NSLog(@"%s registered with Frank as selector engine named '%@'", VERSIONED_NAME, registeredName);
-    [registeredInstance release];
 }
 
-- (NSArray *) selectViewsWithSelector:(NSString *)selector {
+- (NSArray *)selectViewsWithSelector:(NSString *)selector
+{
     NSLog( @"Using %s to select views with selector: %@", VERSIONED_NAME, selector );
     
     Shelley *shelley = [Shelley withSelectorString:selector];
-    
-#if TARGET_OS_IPHONE
     return [shelley selectFromViews:[[UIApplication sharedApplication] windows]];
-#else
-    return [shelley selectFromViews: [NSArray arrayWithObject: [NSApplication sharedApplication]]];
-#endif
 }
 
 @end

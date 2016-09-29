@@ -1,23 +1,15 @@
-//
-//  Shelley.m
-//  Shelley
-//
-//  Created by Pete Hodgson on 7/17/11.
-//  Copyright 2011 ThoughtWorks. All rights reserved.
-//
-
 #import "Shelley.h"
-
 #import "SYParser.h"
 
 @implementation Shelley
 
 + (Shelley *) withSelectorString:(NSString *)selectorString
 {
-    return [[[self alloc] initWithSelectorString:selectorString] autorelease];
+    return [[self alloc] initWithSelectorString:selectorString];
 }
 
-- (id)initWithSelectorString:(NSString *)selectorString {
+- (id)initWithSelectorString:(NSString *)selectorString
+{
     self = [super init];
     if (self) {
         _parser = [[SYParser alloc] initWithSelectorString:selectorString];
@@ -25,12 +17,8 @@
     return self;
 }
 
-- (void)dealloc {
-    [_parser release];
-    [super dealloc];
-}
-
-- (void) removeDuplicatesFromArray:(NSMutableArray *)mutableArray{
+- (void)removeDuplicatesFromArray:(NSMutableArray *)mutableArray
+{
     NSArray *copy = [mutableArray copy];
     NSInteger index = [copy count] - 1;
     for (id object in [copy reverseObjectEnumerator]) {
@@ -39,7 +27,6 @@
         }
         index--;
     }
-    [copy release];
 }
 
 - (NSArray *) applyFilter:(id<SYFilter>)filter toViews:(NSArray *)views{

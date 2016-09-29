@@ -1,17 +1,10 @@
-//
-//  SYPredicateFilter.m
-//  Shelley
-//
-//  Created by Pete Hodgson on 7/20/11.
-//  Copyright 2011 ThoughtWorks. All rights reserved.
-//
-
 #import "SYPredicateFilter.h"
 
 @implementation SYPredicateFilter
 @synthesize selector=_selector,args=_args;
 
-- (id)initWithSelector:(SEL)selector args:(NSArray *)args {
+- (id)initWithSelector:(SEL)selector args:(NSArray *)args
+{
     self = [super init];
     if (self) {
         _selector = selector;
@@ -19,12 +12,9 @@
     }
     return self;
 }
-- (void)dealloc {
-    [_args release];
-    [super dealloc];
-}
 
-- (void)castNumber:(NSNumber *)number toType:(const char*)objCType intoBuffer:(void *)buffer{
+- (void)castNumber:(NSNumber *)number toType:(const char*)objCType intoBuffer:(void *)buffer
+{
 	// specific cases should be added here as needed
 	if( !strcmp(objCType, @encode(int)) ){
 		*((int *)buffer) = [number intValue];
@@ -49,14 +39,8 @@
     
     NSUInteger requiredNumberOfArguments = signature.numberOfArguments - 2; // Indices 0 and 1 indicate the hidden arguments self and _cmd, respectively
 	if( requiredNumberOfArguments != [_args count] )
-#if TARGET_OS_IPHONE
 		[NSException raise:@"wrong number of arguments"
-					format:@"%@ takes %i arguments, but %i were supplied", NSStringFromSelector(_selector), requiredNumberOfArguments, [_args count] ];
-#else
-    [NSException raise:@"wrong number of arguments"
-                format:@"%@ takes %li arguments, but %li were supplied", NSStringFromSelector(_selector), requiredNumberOfArguments, [_args count] ];
-#endif
-	
+					format:@"%@ takes %lu arguments, but %lu were supplied", NSStringFromSelector(_selector), (unsigned long)requiredNumberOfArguments, (unsigned long)[_args count] ];
 	[invocation setSelector:_selector];
 	
 	char invocationBuffer[300]; //let's hope we don't get asked to invoke a method with more than 28 arguments.
@@ -76,13 +60,15 @@
     return invocation;
 }
 
-- (BOOL) extractBooleanReturnValueFromInvocation:(NSInvocation *)invocation{
+- (BOOL) extractBooleanReturnValueFromInvocation:(NSInvocation *)invocation
+{
     BOOL retval;
     [invocation getReturnValue:&retval];
     return retval;
 }
 
--(NSArray *)applyToView:(ShelleyView *)view{
+- (NSArray *)applyToView:(ShelleyView *)view
+{
     NSInvocation *invocation = [self createInvocationForObject:view];
     if( !invocation )
         return [NSArray array];
