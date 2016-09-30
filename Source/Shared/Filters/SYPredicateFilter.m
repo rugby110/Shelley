@@ -1,3 +1,4 @@
+#import "Shelley.h"
 #import "SYPredicateFilter.h"
 
 @implementation SYPredicateFilter
@@ -25,12 +26,13 @@
 	}	
 }
 
-- (NSInvocation *) createInvocationForObject:(id)object{
+- (NSInvocation *)createInvocationForObject:(id)object
+{
     NSMethodSignature *signature = [object methodSignatureForSelector:_selector];
-    if( !signature )
+    if (!signature)
         return nil;
     
-    if( strcmp([signature methodReturnType], @encode(BOOL)) ){
+    if (strcmp([signature methodReturnType], @encode(BOOL))) {
         [NSException raise:@"wrong return type" 
 					format:@"predicate does not return a BOOL"];
     }
@@ -70,7 +72,7 @@
 - (NSArray *)applyToView:(ShelleyView *)view
 {
     NSInvocation *invocation = [self createInvocationForObject:view];
-    if( !invocation )
+    if (!invocation)
         return [NSArray array];
      
     [invocation invokeWithTarget:view];

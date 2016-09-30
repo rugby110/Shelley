@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #define ShelleyView UIView
+#import "UIView+ShelleyExtensions.h"
 
 @class SYParser;
 

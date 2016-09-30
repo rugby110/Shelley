@@ -40,11 +40,11 @@
 {
     id<SYFilter> filter = [_parser nextFilter];
     id<SYFilter> prevFilter = filter;
-    if( !filter ) {
+    if (!filter) {
         return [NSArray array];
     }
     NSArray *filteredViews = [filter applyToViews:views];
-    while(( filter = [_parser nextFilter] )){
+    while ((filter = [_parser nextFilter])){
         [filter setDoNotDescend:[prevFilter nextFilterShouldNotDescend]];
         filteredViews = [self applyFilter:filter toViews:filteredViews];
         prevFilter = filter;
