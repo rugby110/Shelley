@@ -29,9 +29,10 @@
 - (NSInvocation *)createInvocationForObject:(id)object
 {
     NSMethodSignature *signature = [object methodSignatureForSelector:_selector];
-    if (!signature)
+    if (!signature) {
+        NSLog(@"Couldn't find signature for selector: %@", self.selector);
         return nil;
-    
+    }
     if (strcmp([signature methodReturnType], @encode(BOOL))) {
         [NSException raise:@"wrong return type" 
 					format:@"predicate does not return a BOOL"];
