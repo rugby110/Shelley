@@ -73,7 +73,7 @@
     // TODO: look at using predicates
     NSMutableArray *filteredDescendants = [NSMutableArray array];
     for (ShelleyView *v in allViews) {
-        if( [v isKindOfClass:_targetClass] ){
+        if ([v isKindOfClass:_targetClass] ) {
             [filteredDescendants addObject:v];
         }
     }
