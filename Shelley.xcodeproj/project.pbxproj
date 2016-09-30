@@ -30,7 +30,7 @@
 		F85939E6173452110074CB9E /* SYPredicateFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = F85939C2173452100074CB9E /* SYPredicateFilter.h */; };
 		F85939E8173452110074CB9E /* SYPredicateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F85939C3173452100074CB9E /* SYPredicateFilter.m */; };
 		F85939EC173452110074CB9E /* LoadableCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = F85939C4173452100074CB9E /* LoadableCategory.h */; };
-		F85939EE173452110074CB9E /* SelectorEngineRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = F85939C5173452100074CB9E /* SelectorEngineRegistry.h */; };
+		F85939EE173452110074CB9E /* SelectorEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = F85939C5173452100074CB9E /* SelectorEngine.h */; };
 		F85939F0173452110074CB9E /* Shelley.h in Headers */ = {isa = PBXBuildFile; fileRef = F85939C6173452100074CB9E /* Shelley.h */; };
 		F85939F2173452110074CB9E /* Shelley.m in Sources */ = {isa = PBXBuildFile; fileRef = F85939C7173452100074CB9E /* Shelley.m */; };
 		F85939F6173452110074CB9E /* SYFrankSelectorEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = F85939C8173452100074CB9E /* SYFrankSelectorEngine.h */; };
@@ -90,7 +90,7 @@
 		F85939C2173452100074CB9E /* SYPredicateFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYPredicateFilter.h; sourceTree = "<group>"; };
 		F85939C3173452100074CB9E /* SYPredicateFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYPredicateFilter.m; sourceTree = "<group>"; };
 		F85939C4173452100074CB9E /* LoadableCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadableCategory.h; sourceTree = "<group>"; };
-		F85939C5173452100074CB9E /* SelectorEngineRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorEngineRegistry.h; sourceTree = "<group>"; };
+		F85939C5173452100074CB9E /* SelectorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorEngine.h; sourceTree = "<group>"; };
 		F85939C6173452100074CB9E /* Shelley.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shelley.h; sourceTree = "<group>"; };
 		F85939C7173452100074CB9E /* Shelley.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shelley.m; sourceTree = "<group>"; };
 		F85939C8173452100074CB9E /* SYFrankSelectorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFrankSelectorEngine.h; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 		F8593A281735DAB80074CB9E /* Frank */ = {
 			isa = PBXGroup;
 			children = (
-				F85939C5173452100074CB9E /* SelectorEngineRegistry.h */,
+				F85939C5173452100074CB9E /* SelectorEngine.h */,
 				F85939C8173452100074CB9E /* SYFrankSelectorEngine.h */,
 				F85939C9173452100074CB9E /* SYFrankSelectorEngine.m */,
 			);
@@ -286,7 +286,7 @@
 				F85939E0173452100074CB9E /* SYParents.h in Headers */,
 				F85939E6173452110074CB9E /* SYPredicateFilter.h in Headers */,
 				F85939EC173452110074CB9E /* LoadableCategory.h in Headers */,
-				F85939EE173452110074CB9E /* SelectorEngineRegistry.h in Headers */,
+				F85939EE173452110074CB9E /* SelectorEngine.h in Headers */,
 				F85939F0173452110074CB9E /* Shelley.h in Headers */,
 				F85939F6173452110074CB9E /* SYFrankSelectorEngine.h in Headers */,
 				2327D6011D9E7DE600508069 /* UIView+ShelleyExtensions.h in Headers */,
@@ -468,7 +468,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soundcloud.ShelleyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -510,7 +510,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soundcloud.ShelleyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -552,10 +552,7 @@
 				DSTROOT = /tmp/Shelley.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Shelley-Prefix.pch";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -567,10 +564,7 @@
 				DSTROOT = /tmp/Shelley.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Shelley-Prefix.pch";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

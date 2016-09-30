@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SelectorEngineRegistry.h"
+#import "SelectorEngine.h"
 
 @interface SYFrankSelectorEngine : NSObject<SelectorEngine>
 

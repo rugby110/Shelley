@@ -13,7 +13,7 @@ static NSString *const registeredName = @"shelley_compat";
 + (void)load
 {
     SYFrankSelectorEngine *registeredInstance = [[self alloc]init];
-    [SelectorEngineRegistry registerSelectorEngine:registeredInstance WithName:registeredName];
+    [NSClassFromString(@"SelectorEngineRegistry") performSelector:NSSelectorFromString(@"registerSelectorEngine:WithName:") withObject:registeredInstance withObject:registeredName];
     NSLog(@"%s registered with Frank as selector engine named '%@'", VERSIONED_NAME, registeredName);
 }
 
